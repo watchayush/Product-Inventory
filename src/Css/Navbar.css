@@ -1,0 +1,31 @@
+nav {
+  top: 0px;
+  width: 100%;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #282c34; */
+  position: relative;
+}
+nav a {
+  position: absolute;
+  right: 55px;
+  font-size: 17px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+nav p {
+  position: absolute;
+  right: 55px;
+  font-size: 22px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
