@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { connect,useDispatch,useSelector } from "react-redux";
-import { useAlert } from 'react-alert'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Form,Button } from 'react-bootstrap';
 import "../Css/Main.css";
 const FormComponent = ({edit})=>{
     const [productName,setProductName] = useState('');
+    const [category,setCategory] = useState('');
+    const [productPrice,setProductPrice] = useState('');
+    const [productDescription,setProductDescription] = useState('');
+
     const dispatch = useDispatch();
     const loggedIn_person = useSelector(state => state.loggedIn_person);
     const newProduct = useSelector(state => state.newProduct);
@@ -13,6 +16,9 @@ const FormComponent = ({edit})=>{
 
     useEffect(()=>{
       setProductName(product_to_edit?.title);
+      setCategory(product_to_edit?.category);
+      setProductPrice(product_to_edit?.price);
+      setProductDescription(product_to_edit?.description);
     },[product_to_edit])
 
     const add = (event) => {
@@ -92,7 +98,7 @@ const FormComponent = ({edit})=>{
                       </Form.Group>
                       <Form.Group controlId="exampleForm.ControlSelect1">
                           <Form.Label className="label">SELECT CATEGORY</Form.Label>
-                          <Form.Control as="select" defaultValue="Select category" name="category" value={product_to_edit.category}>
+                          <Form.Control as="select" defaultValue="Select category" name="category" onChange={(e)=>{setCategory(e.target.value)}} value={category}>
                                <option disabled selected value="select category">Select Category</option>
                                <option value="Men's cloathing">Men's cloathing</option>
                                <option value="Women's cloathing">Women's cloathing</option>
@@ -102,11 +108,11 @@ const FormComponent = ({edit})=>{
                       </Form.Group>
                       <Form.Group controlId="exampleForm.ControlInput1">
                           <Form.Label className="label">PRICE</Form.Label>
-                          <Form.Control type="number" placeholder="Enter Price of the product" name="productPrice" value={product_to_edit.price}/>
+                          <Form.Control type="number" placeholder="Enter Price of the product" name="productPrice" onChange={(e)=>{setProductPrice(e.target.value)}} value={productPrice}/>
                       </Form.Group>
                       <Form.Group controlId="exampleForm.ControlTextarea1">
                           <Form.Label className="label">DESCRIPTION</Form.Label>
-                          <Form.Control as="textarea" rows={3} placeholder="Enter Description of the product" name="productDescription" value={product_to_edit.description}/>
+                          <Form.Control as="textarea" rows={3} placeholder="Enter Description of the product" name="productDescription" onChange={(e)=>{setProductDescription(e.target.value)}} value={productDescription}/>
                       </Form.Group>
                       <Button variant="primary" type="submit" className="label sb">
                                EDIT PRODUCT

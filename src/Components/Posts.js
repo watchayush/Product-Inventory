@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { connect,useDispatch,useSelector } from "react-redux";
 import { Card } from 'react-bootstrap';
 import "../Css/Main.css";
@@ -8,7 +8,7 @@ import Switch from 'react-bootstrap/esm/Switch';
 const Posts = ({ posts}) => {
   const dispatch = useDispatch();
 
-
+ 
   return (
     <div>
       <Table striped bordered hover variant="light">
