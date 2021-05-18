@@ -6,7 +6,9 @@ import Navbar from './Components/Navbar';
 import Main from './Components/Main';
 import SignIn from "./Components/SignIn";
 import { Switch,Route} from 'react-router-dom';
-
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 function App() {
   return (
     <div className="App">

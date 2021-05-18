@@ -6,6 +6,7 @@ import axios from 'axios';
 import FormComponent from "./FormComponent";
 import DisplayProducts from "./DisplayProducts";
 import "../Css/Main.css";
+import {toast} from 'react-toastify';
 const Main = ()=>{
     const [products,setProducts]=useState([]);
     const newProduct = useSelector(state => state.newProduct);
@@ -17,7 +18,6 @@ const Main = ()=>{
         .then(res => {
             setTimeout(()=>{
                     setProducts(res.data);
-                    
             },1000)
             
         })
@@ -46,6 +46,13 @@ const Main = ()=>{
       var remainingProducts = products.filter(product => product.id != editProduct.id);
       remainingProducts.push(editProduct);
       setProducts(remainingProducts);
+      toast.success('One product Edited', {
+        position: toast.POSITION.TOP_RIGHT, autoClose:5000});
+    }
+
+    var calculateId = () =>{
+      console.log("inside calculateId ",parseInt(products[products.length-1].id+1));
+      return parseInt(products[products.length-1].id)+1;
     }
 
     return(
@@ -53,7 +60,7 @@ const Main = ()=>{
             <Row>
               <Col lg={5}>
                 <Card style={{ margin:"30px",color:"black",boxShadow: "2px 5px 20px 2px rgba(46, 46, 46, 0.5)"}}>
-                   <FormComponent edit={edit}/>
+                   <FormComponent edit={edit} calculateId={calculateId}/>
                 </Card>
               </Col>
               <Col lg={7}>

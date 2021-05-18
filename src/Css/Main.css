@@ -28,6 +28,21 @@
 .sb:hover {
   box-shadow: 2px 5px 20px 2px rgba(46, 46, 46, 0.5);
 }
+.go {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 20px;
+  /* color: rgb(110, 110, 110); */
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background-color: green;
+}
+.go:hover {
+  background-color: rgb(2, 88, 2);
+  box-shadow: 2px 5px 20px 2px rgba(46, 46, 46, 0.5);
+}
 
 .pagination:hover {
   cursor: pointer;
@@ -38,4 +53,9 @@
 }
 .editDelete {
   margin-top: 10px;
+}
+.errorMessage {
+  font-size: 11px;
+  color: red;
+  font-style: oblique;
 }
